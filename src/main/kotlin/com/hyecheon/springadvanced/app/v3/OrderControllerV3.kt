@@ -1,7 +1,7 @@
 package com.hyecheon.springadvanced.app.v3
 
-import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
+import org.springframework.beans.factory.ObjectFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class OrderControllerV3(
 	private val orderServiceV3: OrderServiceV3,
-	private val trace: LogTrace
+	private val traceObject: ObjectFactory<LogTrace>
 ) {
 
 	@GetMapping("/v3/request")
 	fun request(itemId: String?) = run {
+		val trace = traceObject.`object`
 		val status = trace.begin("OrderController.request()")
 		try {
 			orderServiceV3.orderItem(itemId!!)

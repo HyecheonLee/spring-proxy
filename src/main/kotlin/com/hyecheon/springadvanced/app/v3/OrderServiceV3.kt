@@ -3,6 +3,7 @@ package com.hyecheon.springadvanced.app.v3
 import com.hyecheon.springadvanced.trace.TraceId
 import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
+import org.springframework.beans.factory.ObjectFactory
 import org.springframework.stereotype.Service
 
 /**
@@ -13,10 +14,11 @@ import org.springframework.stereotype.Service
 @Service
 class OrderServiceV3(
 	private val orderRepositoryV3: OrderRepositoryV3,
-	private val trace: LogTrace
+	private val traceObject: ObjectFactory<LogTrace>
 
 ) {
 	fun orderItem(itemId: String) = run {
+		val trace = traceObject.`object`
 		val status = trace.begin("OrderService.orderItem()")
 		try {
 			orderRepositoryV3.save(itemId = itemId)

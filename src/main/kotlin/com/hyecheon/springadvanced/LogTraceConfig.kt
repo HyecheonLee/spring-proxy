@@ -3,6 +3,7 @@ package com.hyecheon.springadvanced
 import com.hyecheon.springadvanced.trace.logtrace.FieldLogTrace
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Scope
 
 /**
  * User: hyecheon lee
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class LogTraceConfig {
 
+	@Scope("request")
 	@Bean
 	fun logTrace() = FieldLogTrace()
 
