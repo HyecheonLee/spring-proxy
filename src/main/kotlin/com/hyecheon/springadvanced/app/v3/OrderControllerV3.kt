@@ -1,6 +1,8 @@
 package com.hyecheon.springadvanced.app.v3
 
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.ObjectFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
