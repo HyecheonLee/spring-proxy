@@ -1,6 +1,7 @@
 package com.hyecheon.springadvanced.trace.threadlocal
 
 import com.hyecheon.springadvanced.trace.threadlocal.code.FieldService
+import com.hyecheon.springadvanced.trace.threadlocal.code.ThreadLocalService
 import kotlinx.coroutines.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -12,9 +13,9 @@ import java.lang.Thread.sleep
  * Email: rainbow880616@gmail.com
  * Date: 2021/12/11
  */
-class FieldServiceTest {
+class ThreadLocalServiceTest {
 	private val log = LoggerFactory.getLogger(this::class.java)
-	private val fieldService = FieldService()
+	private val fieldService = ThreadLocalService()
 
 	@DisplayName("1. field")
 	@Test
