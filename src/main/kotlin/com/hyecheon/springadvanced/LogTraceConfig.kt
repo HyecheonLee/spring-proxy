@@ -1,9 +1,8 @@
 package com.hyecheon.springadvanced
 
-import com.hyecheon.springadvanced.trace.logtrace.FieldLogTrace
+import com.hyecheon.springadvanced.trace.logtrace.ThreadLocalLogTrace
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Scope
 
 /**
  * User: hyecheon lee
@@ -13,8 +12,7 @@ import org.springframework.context.annotation.Scope
 @Configuration
 class LogTraceConfig {
 
-	@Scope("request")
+	//	@Scope("request")
 	@Bean
-	fun logTrace() = FieldLogTrace()
-
+	fun logTrace() = ThreadLocalLogTrace()
 }
