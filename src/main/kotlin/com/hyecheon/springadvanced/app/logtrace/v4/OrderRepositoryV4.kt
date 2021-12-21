@@ -1,6 +1,5 @@
-package com.hyecheon.springadvanced.app.v5
+package com.hyecheon.springadvanced.app.logtrace.v4
 
-import com.hyecheon.springadvanced.trace.callback.TraceTemplate
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
 import com.hyecheon.springadvanced.trace.template.AbstractTemplate
 import org.springframework.stereotype.Repository
@@ -12,15 +11,18 @@ import java.lang.Thread.sleep
  * Date: 2021/12/04
  */
 @Repository
-class OrderRepositoryV5(
-	private val trace: TraceTemplate
+class OrderRepositoryV4(
+	private val trace: LogTrace
 ) {
 	fun save(itemId: String) = run {
-		trace.execute("OrderRepository.save()") {
-			if (itemId == "ex") {
-				throw IllegalStateException("예외 발생")
+		val template = object : AbstractTemplate<Unit>(trace) {
+			override fun call() {
+				if (itemId == "ex") {
+					throw IllegalStateException("예외 발생")
+				}
+				sleep(1000)
 			}
-			sleep(1000)
 		}
+		template.execute("OrderRepository.save()")
 	}
 }

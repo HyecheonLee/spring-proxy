@@ -1,7 +1,5 @@
-package com.hyecheon.springadvanced.app.v3
+package com.hyecheon.springadvanced.app.logtrace.v3
 
-import com.hyecheon.springadvanced.trace.TraceId
-import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
 import org.springframework.beans.factory.ObjectFactory
 import org.springframework.stereotype.Repository

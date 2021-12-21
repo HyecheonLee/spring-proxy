@@ -1,6 +1,6 @@
-package com.hyecheon.springadvanced.app.v2
+package com.hyecheon.springadvanced.app.logtrace.v1
 
-import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2
+import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV1
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController
  * Date: 2021/12/04
  */
 @RestController
-class OrderControllerV2(
-	private val orderServiceV2: OrderServiceV2,
-	private val trace: HelloTraceV2
+class OrderControllerV1(
+	private val orderServiceV1: OrderServiceV1,
+	private val trace: HelloTraceV1
 ) {
 
-	@GetMapping("/v2/request")
+	@GetMapping("/v1/request")
 	fun request(itemId: String?) = run {
 		val status = trace.begin("OrderController.request()")
 		try {
-			orderServiceV2.orderItem(status.traceId, itemId!!)
+			orderServiceV1.orderItem(itemId!!)
 			trace.end(status)
 			"ok"
 		} catch (e: Exception) {

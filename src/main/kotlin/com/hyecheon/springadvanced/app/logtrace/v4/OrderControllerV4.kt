@@ -1,4 +1,4 @@
-package com.hyecheon.springadvanced.app.v4
+package com.hyecheon.springadvanced.app.logtrace.v4
 
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
 import com.hyecheon.springadvanced.trace.template.AbstractTemplate

@@ -1,7 +1,6 @@
-package com.hyecheon.springadvanced.app.v2
+package com.hyecheon.springadvanced.app.logtrace.v1
 
-import com.hyecheon.springadvanced.trace.TraceId
-import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2
+import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV1
 import org.springframework.stereotype.Repository
 import java.lang.Thread.sleep
 
@@ -11,11 +10,11 @@ import java.lang.Thread.sleep
  * Date: 2021/12/04
  */
 @Repository
-class OrderRepositoryV2(
-	private val trace: HelloTraceV2
+class OrderRepositoryV1(
+	private val trace: HelloTraceV1
 ) {
-	fun save(traceId: TraceId, itemId: String) = run {
-		val status = trace.beginSync(traceId, "OrderRepository.save()")
+	fun save(itemId: String) = run {
+		val status = trace.begin("OrderRepository.save()")
 		try {
 			if (itemId == "ex") {
 				throw IllegalStateException("예외 발생")

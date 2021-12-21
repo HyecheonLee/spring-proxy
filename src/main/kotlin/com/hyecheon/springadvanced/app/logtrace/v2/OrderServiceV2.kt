@@ -1,4 +1,4 @@
-package com.hyecheon.springadvanced.app.v2
+package com.hyecheon.springadvanced.app.logtrace.v2
 
 import com.hyecheon.springadvanced.trace.TraceId
 import com.hyecheon.springadvanced.trace.hellotrace.HelloTraceV2

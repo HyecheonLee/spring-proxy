@@ -1,4 +1,4 @@
-package com.hyecheon.springadvanced
+package com.hyecheon.springadvanced.config
 
 import com.hyecheon.springadvanced.trace.logtrace.ThreadLocalLogTrace
 import org.springframework.context.annotation.Bean

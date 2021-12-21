@@ -1,4 +1,4 @@
-package com.hyecheon.springadvanced.app.v0
+package com.hyecheon.springadvanced.app.logtrace.v0
 
 import org.springframework.stereotype.Repository
 import java.lang.Thread.sleep
