@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.ResponseBody
  */
 @RequestMapping
 @ResponseBody
-class OrderControllerV2(
-	private val orderService: OrderServiceV2
+open class OrderControllerV2(
+	private val orderService: OrderServiceV2?
 ) {
 
 	@GetMapping("/proxy/v2/request")
-	fun request(itemId: String): String {
-		orderService.orderItem(itemId)
+	open fun request(itemId: String): String {
+		orderService?.orderItem(itemId)
 		return "ok"
 	}
 
 	@GetMapping("/proxy/v2/no-log")
-	fun noLog() {
-		"ok"
+	open fun noLog(): String {
+		return "ok"
 	}
 }
