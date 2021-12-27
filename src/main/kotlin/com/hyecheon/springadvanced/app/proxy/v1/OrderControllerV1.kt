@@ -16,5 +16,5 @@ interface OrderControllerV1 {
 	fun request(@RequestParam("itemId") itemId: String): String
 
 	@GetMapping("/proxy/v1/no-log")
-	fun noLog()
+	fun noLog(): String
 }

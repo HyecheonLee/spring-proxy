@@ -9,7 +9,7 @@ class OrderControllerV1Impl(
 		return "ok"
 	}
 
-	override fun noLog() {
-		"ok"
+	override fun noLog(): String {
+		return "ok"
 	}
 }

@@ -26,7 +26,7 @@ class OrderControllerInterfaceProxy(
 		}
 	}
 
-	override fun noLog() {
-		target.noLog()
+	override fun noLog(): String {
+		return target.noLog()
 	}
 }
