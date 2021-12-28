@@ -1,5 +1,6 @@
 package com.hyecheon.springadvanced.common.service
 
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 /**
@@ -8,8 +9,8 @@ import org.slf4j.LoggerFactory
  * Date: 2021/12/28
  */
 open class ConcreteService {
-	private val log = LoggerFactory.getLogger(this::class.java)
-	fun call() = run {
-		log.info("Concrete call 호출")
+	private val log: Logger = LoggerFactory.getLogger(this::class.java)
+	open fun call() = run {
+		log.info("ConcreteService 호출")
 	}
 }
