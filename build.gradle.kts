@@ -28,6 +28,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 
+	implementation("org.springframework.boot:spring-boot-starter-aop")
+
 }
 
 tasks.withType<KotlinCompile> {
