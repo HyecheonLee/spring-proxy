@@ -4,6 +4,7 @@ import com.hyecheon.springadvanced.config.ProxyAppV1Config
 import com.hyecheon.springadvanced.config.ProxyAppV2Config
 import com.hyecheon.springadvanced.config.v3_proxyfactory.advice.LogTraceAdvice
 import com.hyecheon.springadvanced.trace.logtrace.LogTrace
+import org.springframework.aop.aspectj.AspectJExpressionPointcut
 import org.springframework.aop.support.DefaultPointcutAdvisor
 import org.springframework.aop.support.NameMatchMethodPointcut
 import org.springframework.context.annotation.Bean
@@ -19,10 +20,19 @@ import org.springframework.context.annotation.Import
 @Import(value = [ProxyAppV1Config::class, ProxyAppV2Config::class])
 class AutoProxyConfig {
 
-	@Bean
+	//	@Bean
 	fun advisor1(logTrace: LogTrace) = run {
 		val pointcut = NameMatchMethodPointcut().apply {
 			setMappedNames("request*", "order*", "save*")
+		}
+		val advice = LogTraceAdvice(logTrace)
+		DefaultPointcutAdvisor(pointcut, advice)
+	}
+
+	@Bean
+	fun advisor2(logTrace: LogTrace) = run {
+		val pointcut = AspectJExpressionPointcut().apply {
+			expression = "execution(* com.hyecheon.springadvanced.app..*(..))"
 		}
 		val advice = LogTraceAdvice(logTrace)
 		DefaultPointcutAdvisor(pointcut, advice)
