@@ -2,10 +2,10 @@ package com.hyecheon.springadvanced.app.proxy.v1
 
 
 class OrderControllerV1Impl(
-	private val orderService: OrderServiceV1
+	private val orderServiceV1: OrderServiceV1
 ) : OrderControllerV1 {
 	override fun request(itemId: String): String {
-		orderService.orderItem(itemId)
+		orderServiceV1.orderItem(itemId)
 		return "ok"
 	}
 

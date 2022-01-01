@@ -1,9 +1,7 @@
 package com.hyecheon.springadvanced.config
 
 
-import com.hyecheon.springadvanced.app.proxy.v1.OrderControllerV1Impl
-import com.hyecheon.springadvanced.app.proxy.v1.OrderRepositoryV1Impl
-import com.hyecheon.springadvanced.app.proxy.v1.OrderServiceV1Impl
+import com.hyecheon.springadvanced.app.proxy.v1.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -16,17 +14,17 @@ import org.springframework.context.annotation.Configuration
 class ProxyAppV1Config {
 
 	@Bean
-	fun orderControllerV1() = run {
+	fun orderControllerV1(): OrderControllerV1 = run {
 		OrderControllerV1Impl(orderServiceV1())
 	}
 
 	@Bean
-	fun orderServiceV1() = run {
+	fun orderServiceV1(): OrderServiceV1 = run {
 		OrderServiceV1Impl(orderRepositoryV1())
 	}
 
 	@Bean
-	fun orderRepositoryV1() = run {
+	fun orderRepositoryV1(): OrderRepositoryV1 = run {
 		OrderRepositoryV1Impl()
 	}
 }
