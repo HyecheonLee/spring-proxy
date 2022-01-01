@@ -22,7 +22,7 @@ class OrderControllerV3(
 	}
 
 	@GetMapping("/proxy/v3/no-log")
-	fun noLog() {
-		"ok"
+	fun noLog(): String {
+		return "ok"
 	}
 }

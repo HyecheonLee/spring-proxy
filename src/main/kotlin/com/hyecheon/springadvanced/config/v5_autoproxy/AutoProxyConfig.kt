@@ -29,10 +29,20 @@ class AutoProxyConfig {
 		DefaultPointcutAdvisor(pointcut, advice)
 	}
 
-	@Bean
+//	@Bean
 	fun advisor2(logTrace: LogTrace) = run {
 		val pointcut = AspectJExpressionPointcut().apply {
 			expression = "execution(* com.hyecheon.springadvanced.app..*(..))"
+		}
+		val advice = LogTraceAdvice(logTrace)
+		DefaultPointcutAdvisor(pointcut, advice)
+	}
+
+	@Bean
+	fun advisor3(logTrace: LogTrace) = run {
+		val pointcut = AspectJExpressionPointcut().apply {
+			expression =
+				"execution(* com.hyecheon.springadvanced.app..*(..)) && !execution(* com.hyecheon.springadvanced.app..noLog(..))"
 		}
 		val advice = LogTraceAdvice(logTrace)
 		DefaultPointcutAdvisor(pointcut, advice)
