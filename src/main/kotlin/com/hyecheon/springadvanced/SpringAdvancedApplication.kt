@@ -10,6 +10,7 @@ import com.hyecheon.springadvanced.config.v3_proxyfactory.ProxyFactoryConfigV1
 import com.hyecheon.springadvanced.config.v3_proxyfactory.ProxyFactoryConfigV2
 import com.hyecheon.springadvanced.config.v4_postprocessor.BeanPostProcessorConfig
 import com.hyecheon.springadvanced.config.v5_autoproxy.AutoProxyConfig
+import com.hyecheon.springadvanced.config.v6_aop.AopConfig
 import com.hyecheon.springadvanced.trace.logtrace.ThreadLocalLogTrace
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -25,7 +26,8 @@ import org.springframework.context.annotation.Import
 //@Import(value = [ProxyFactoryConfigV1::class])
 //@Import(value = [ProxyFactoryConfigV2::class])
 //@Import(value = [BeanPostProcessorConfig::class])
-@Import(value = [AutoProxyConfig::class])
+//@Import(value = [AutoProxyConfig::class])
+@Import(value = [AopConfig::class])
 @SpringBootApplication(scanBasePackages = ["com.hyecheon.springadvanced.app.proxy"])
 class SpringAdvancedApplication {
 	@Bean
